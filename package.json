@@ -6,9 +6,17 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
+  "repository": {
+  "type": "git",
+  "url": "https://github.com/svitekpavel/horizon-chat-app.git"
+  },
+  "moduleRoots": [
+    "src"
+  ],
   "author": "Pavel Svitek",
   "license": "ISC",
   "dependencies": {
+    "@horizon/client": "^2.0.0",
     "babel-core": "^6.18.2",
     "babel-loader": "^6.2.8",
     "babel-plugin-transform-runtime": "^6.15.0",
