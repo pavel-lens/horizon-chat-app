@@ -1,6 +1,31 @@
 .center {
   margin: auto;
-  border: 1px solid;
-  border-radius: 2px;
+  /*border: 1px solid;
+  border-radius: 2px;*/
   padding: 10px;
+}
+
+.container-fluid {
+    margin-right: auto;
+    margin-left: auto;
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+#app {
+  margin: auto;
+  width: 900px;
+  border: 1px solid #ddd;
+}
+
+.chat-container {
+  /*width: 900px;*/
+  align: center;
+}
+
+.messages-container {
+  padding: 10px;
+  max-height: 600px;
+  overflow-y: scroll;
+  overflow-x: hidden;
 }
