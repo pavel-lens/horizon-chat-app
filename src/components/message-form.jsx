@@ -1,13 +1,20 @@
 import React, { Component } from 'react';
+import FlatButton from 'material-ui/FlatButton';
+import RaisedButton from 'material-ui/RaisedButton';
+import TextField from 'material-ui/TextField';
+
+const styleButton = {
+  margin: 12,
+};
 
 export default class MessageForm extends Component {
   render() {
     return (
-      <form>
-        <div className="center">
-          <input onChange={this.props.onAuthorChange} value={this.props.author} placeholder="Author"></input>
-          <input onChange={this.props.onTextChange} value={this.props.text} placeholder="Hey there.."></input>
-          <button onClick={this.props.onSendMessage}>Send Message</button>
+      <form ref="form">
+        <div className="container">
+          <TextField onChange={this.props.onAuthorChange} value={this.props.author} floatingLabelText="Author" hintText="Your name"/>
+          <TextField onChange={this.props.onTextChange} value={this.props.text} floatingLabelText="Message" hintText="Hey there.."/>
+          <RaisedButton secondary={true} onTouchTap={this.props.onSendMessage} style={styleButton}>Send Message</RaisedButton>
         </div>
       </form>
     )

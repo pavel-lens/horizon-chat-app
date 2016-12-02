@@ -12,7 +12,10 @@ class MessageList extends Component {
    }
 
    componentDidMount() {
-     this.chat.watch().subscribe(
+     this.chat
+      .order('dtc')
+      .watch()
+      .subscribe(
        (messages) => {
          const conversation = messages.map((message) => {
            return message;
@@ -29,7 +32,11 @@ class MessageList extends Component {
        return <Message message={message} key={i} />
      });
      return (
-       <div className='container-fluid'> {nodes} </div>
+       <div className="messages-container">
+         <div className="container-fluid">
+           {nodes}
+         </div>
+       </div>
     );
   }
 }

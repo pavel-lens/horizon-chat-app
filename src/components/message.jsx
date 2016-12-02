@@ -8,7 +8,7 @@ export default class Message extends Component {
   render() {
     const message = this.props.message;
     return (
-      <div className="row">
+      <div className="row-fluid">
         <div className="col-xs-2 center">{message.author}</div>
         <div className="col-xs-10 center">{message.text}</div>
       </div>
