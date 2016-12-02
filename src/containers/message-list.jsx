@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 
-import Message from './message';
+import Message from '../components/message';
 
-class Messages extends Component {
+class MessageList extends Component {
   constructor(props) {
     super(props);
     this.chat = props.chat;
@@ -34,4 +34,4 @@ class Messages extends Component {
   }
 }
 
-export default Messages;
+export default MessageList;

@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import Horizon from '@horizon/client';
-import Messages from './messages';
+import MessageList from './message-list';
 
 const horizon = Horizon({ secure: false });
 const chat = horizon('messages');
@@ -48,7 +48,7 @@ class App extends Component {
             <button onClick={this.sendMessage.bind(this)}>Send Message</button>
           </div>
         </form>
-        <Messages chat={chat}/>
+        <MessageList chat={chat}/>
       </div>
     )
   }
