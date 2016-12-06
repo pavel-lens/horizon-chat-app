@@ -2,22 +2,28 @@
 
 ## Install
 
-### Horizon
+### RethinkDB and Horizon
 
-First, you must install Horizon via `npm install -g horizon`. Horizon will be accessible via `hz` command.
+First, you must install RethinkDB. It's an awesome database, with amazing
+features such as pushing changes in collections (tables) to client application.
 
-### App
+Then, you must install Horizon via `npm install -g horizon`. Horizon will be
+accessible via `hz` command.
 
-Checkout the repo and simply run `npm install`
+### Chat App
+
+Checkout the repo and simply run `npm install`. Then you must initialize your
+Horizon `secrets.toml` file via `hz init` command in the project directory.
 
 ## How to run
 
-You have to run two commands:
+First, you have to run your Horizon listener.
 
 `hz serve --dev`
 
-This will run the database.
+Afterwards, run the webpack command.
 
 `webpack --watch --progress --colors`
 
-This will run webpack which will watch over changes in the files and repacks everything (hotloading).
+This will run webpack which will watch over changes in the files and repacks
+everything (hotloading).
