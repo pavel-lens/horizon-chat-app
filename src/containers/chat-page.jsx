@@ -1,16 +1,13 @@
 import React, { Component } from 'react';
-import Horizon from '@horizon/client';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
-
 import AppBar from 'material-ui/AppBar';
-import MessageList from './message-list';
+
+import MessageListContainer from './message-list-container';
 import MessageForm from '../components/message-form';
-
-const horizon = Horizon({ secure: false });
-const chat = horizon('messages');
+import { chat } from '../horizon'
 
 
-class App extends Component {
+export default class ChatPage extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -48,7 +45,7 @@ class App extends Component {
       <MuiThemeProvider>
         <div className="chat-container">
           <AppBar title="Chat App"/>
-          <MessageList chat={chat}/>
+          <MessageListContainer chat={chat}/>
           <MessageForm
             author={this.state.author}
             text={this.state.text}
@@ -61,5 +58,3 @@ class App extends Component {
     )
   }
 }
-
-export default App;
