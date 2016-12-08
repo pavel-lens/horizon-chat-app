@@ -3,41 +3,31 @@ import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import AppBar from 'material-ui/AppBar';
 
 import MessageListContainer from './message-list-container';
-import MessageForm from '../components/message-form';
-import { chat } from '../horizon'
-
+import MessageFormContainer from './message-form-container';
+// import { chat } from '../horizon'
 
 export default class ChatPage extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      author: '',
-      text: ''
+
     }
   }
 
-  handleChangeField(key, event) {
-    this.setState({
-      [key]: event.target.value
-    });
-  }
-
-  sendMessage(event) {
-    event.preventDefault();
-    if (!this.state.author || !this.state.text){
-      alert('Author and message must be specified!');
-      return;
-    }
-
-    const message = {
-      author: this.state.author,
-      text: this.state.text,
-      dtc: new Date(),
-    };
-
-    // Store the message and reset the text field
-    chat.store(message);
-    this.setState({ text: '' });
+  componentDidMount() {
+    // chat
+    //  .order('dtc')
+    //  .watch()
+    //  .subscribe(
+    //   (messages) => {
+    //     const conversation = messages.map((message) => {
+    //       return message;
+    //     });
+    //     this.setState({
+    //       conversation: messages
+    //     });
+    //   }
+    // );
   }
 
   render() {
@@ -45,14 +35,8 @@ export default class ChatPage extends Component {
       <MuiThemeProvider>
         <div className="chat-container">
           <AppBar title="Chat App"/>
-          <MessageListContainer chat={chat}/>
-          <MessageForm
-            author={this.state.author}
-            text={this.state.text}
-            onAuthorChange={this.handleChangeField.bind(this, 'author')}
-            onTextChange={this.handleChangeField.bind(this, 'text')}
-            onSendMessage={this.sendMessage.bind(this)}
-            />
+          <MessageListContainer/>
+          <MessageFormContainer/>
         </div>
       </MuiThemeProvider>
     )

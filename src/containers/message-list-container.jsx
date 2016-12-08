@@ -1,37 +1,30 @@
-import React, { Component } from 'react';
+import React, { Component } from 'react'
+import { connect } from 'react-redux'
 
-import MessageList from '../components/message-list';
+import MessageList from '../components/message-list'
 
-class MessageListContainer extends Component {
+class _MessageListContainer extends Component {
   constructor(props) {
     super(props);
-    this.chat = props.chat;
     this.state = {
-      conversation: []
+      // conversation: props.messages,
      };
    }
 
-   componentDidMount() {
-     this.chat
-      .order('dtc')
-      .watch()
-      .subscribe(
-       (messages) => {
-         const conversation = messages.map((message) => {
-           return message;
-         });
-         this.setState({
-           conversation: messages
-         });
-       }
-     );
-   }
+
 
    render() {
      return (
-       <MessageList messages={this.state.conversation}/>
+       <MessageList messages={this.props.messages}/>
     );
   }
 }
 
+const mapStateToProps = (state) => {
+  return {
+    messages: state.messages,
+  }
+}
+
+const MessageListContainer = connect(mapStateToProps)(_MessageListContainer);
 export default MessageListContainer;

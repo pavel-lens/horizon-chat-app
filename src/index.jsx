@@ -1,8 +1,10 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import injectTapEventPlugin from 'react-tap-event-plugin';
+import { Provider } from 'react-redux'
 
 import ChatPage from './containers/chat-page';
+import { store } from './store';
 
 // Material UI
 // Needed for onTouchTap
@@ -10,6 +12,8 @@ import ChatPage from './containers/chat-page';
 injectTapEventPlugin();
 
 ReactDOM.render(
-  <ChatPage/>,
-  document.querySelector('#app')
+  <Provider store={store}>
+    <ChatPage/>
+  </Provider>
+  , document.querySelector('#app')
 );
